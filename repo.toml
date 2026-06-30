@@ -1,6 +1,5 @@
 [repo]
 name = "forge.domain_randomization"
-extra_tool_paths = ["/home/znr/isaacsim/kit/dev/tools/repoman"]
 
 [repo_publish_exts]
 enabled = true
@@ -16,9 +15,6 @@ signing.enabled = false
 include = ["forge.domain_randomization"]
 exclude = []
 
-[[repo_publish_exts.registries]]
-name = "kit/default"
-url = "omniverse://kit-extensions.ov.nvidia.com/exts/kit/default"
 
 [repo_test]
 enabled = true
