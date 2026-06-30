@@ -1,0 +1,12 @@
+#usda 1.0
+(
+    customLayerData = {
+        string forge_compose_variant_id = "forge_dr_ui_variant"
+        string forge_compose_base_scene = "/home/znr/collected_scene/demo_environmental_safety/kitchen_new.usda"
+        string forge_compose_role = "composition_stub"
+    }
+    subLayers = [
+        @/home/znr/collected_scene/demo_environmental_safety/forge_dr/randomization_layers/dr_seed_0001.usda@,
+        @/home/znr/collected_scene/demo_environmental_safety/kitchen_new.usda@
+    ]
+)

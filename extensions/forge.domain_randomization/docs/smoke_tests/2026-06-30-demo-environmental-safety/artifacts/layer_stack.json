@@ -1,0 +1,15 @@
+{
+  "base_scene_usd": "/home/znr/collected_scene/demo_environmental_safety/kitchen_new.usda",
+  "composed_scene_usd": "/home/znr/collected_scene/demo_environmental_safety/forge_dr/composed_scene.usda",
+  "composition": {
+    "base_role": "weakest_sublayer",
+    "note": "The plugin emits only the recipe. Host code (Isaac runtime, FORGE planner, or an offline tool) decides whether to compose via a stub USDA, a session layer, or flattening. The `domain_randomization_compose` command writes a stub on demand.",
+    "order": "subLayers_first_is_strongest",
+    "recommended_strategy": "stub"
+  },
+  "schema_version": "0.2",
+  "sub_layers": [
+    "/home/znr/collected_scene/demo_environmental_safety/forge_dr/randomization_layers/dr_seed_0001.usda"
+  ],
+  "variant_id": "forge_dr_ui_variant"
+}

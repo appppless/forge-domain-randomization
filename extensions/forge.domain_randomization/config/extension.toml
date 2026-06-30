@@ -1,0 +1,25 @@
+[core]
+reloadable = true
+order = 0
+
+[package]
+version = "0.1.0"
+category = "FORGE"
+title = "FORGE Domain Randomization"
+description = "USD-layer based domain randomization for FORGE benchmark variants."
+authors = ["https://github.com/appppless"]
+repository = ""
+keywords = ["FORGE", "Benchmark", "Domain Randomization"]
+changelog = "docs/CHANGELOG.md"
+readme = "docs/README.md"
+preview_image = "data/preview.png"
+
+[[python.module]]
+name = "forge_domain_randomization"
+
+[dependencies]
+"omni.usd" = {}
+"omni.kit.commands" = {}
+"omni.kit.menu.utils" = {}
+"omni.kit.window.filepicker" = {}
+"isaacsim.gui.components" = {}

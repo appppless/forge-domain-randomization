@@ -1,0 +1,28 @@
+[repo]
+name = "forge.domain_randomization"
+extra_tool_paths = ["/home/znr/isaacsim/kit/dev/tools/repoman"]
+
+[repo_publish_exts]
+enabled = true
+repo_name = "forge.domain_randomization"
+configs = ["release"]
+platforms = ["linux-x86_64"]
+python_tag = "cp310"
+pack_extension = true
+publish_verification = true
+signing.enabled = false
+
+[repo_publish_exts.exts]
+include = ["forge.domain_randomization"]
+exclude = []
+
+[[repo_publish_exts.registries]]
+name = "kit/default"
+url = "omniverse://kit-extensions.ov.nvidia.com/exts/kit/default"
+
+[repo_test]
+enabled = true
+
+[repo_test.suites.main]
+kind = "python"
+path = "extensions/forge.domain_randomization/tests"

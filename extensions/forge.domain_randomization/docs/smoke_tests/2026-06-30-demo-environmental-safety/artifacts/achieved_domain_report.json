@@ -1,0 +1,261 @@
+{
+  "achieved_parameters": {
+    "/World/rooms/kitchen/BoxOfCereal_01.asset.copy./World/rooms/kitchen/BoxOfCereal_01_copy": {
+      "asset_path": "/home/znr/collected_scene/demo_environmental_safety/kitchen_new.usda",
+      "composition": "reference",
+      "source_prim_path": "/World/rooms/kitchen/BoxOfCereal_01"
+    },
+    "/World/rooms/kitchen/BoxOfCereal_01.asset.copy./World/rooms/kitchen/BoxOfCereal_01_copy.translation": [
+      1.6899965788871327,
+      2.0913288852116514,
+      1.1849717453407866
+    ],
+    "/World/rooms/kitchen/BoxOfCereal_01.material./World/rooms/kitchen/BoxOfCereal_01/Looks/wrlalk__base_link_pbr/Shader.base_color": [
+      1.0,
+      0.9886343020681428,
+      0.9832293557715882
+    ],
+    "/World/rooms/kitchen/BoxOfCereal_01.material./World/rooms/kitchen/BoxOfCereal_01/Looks/wrlalk__base_link_pbr/Shader.base_color_attr": "inputs:diffuse_tint",
+    "/World/rooms/kitchen/BoxOfCereal_01.material./World/rooms/kitchen/BoxOfCereal_01/Looks/wrlalk__base_link_pbr/Shader.roughness": 0.4248244185760635,
+    "/World/rooms/kitchen/BoxOfCereal_01.material./World/rooms/kitchen/BoxOfCereal_01/Looks/wrlalk__base_link_pbr/Shader.roughness_attr": "inputs:reflection_roughness_constant",
+    "/World/rooms/kitchen/BoxOfCereal_01.physics.mass": 1.054016345657507,
+    "/World/rooms/kitchen/BoxOfCereal_01.pose.rotation_delta_deg": [
+      0.0,
+      0.0,
+      -0.8841911965960314
+    ],
+    "/World/rooms/kitchen/BoxOfCereal_01.pose.scale_factors": [
+      1.0,
+      1.0,
+      1.0
+    ],
+    "/World/rooms/kitchen/BoxOfCereal_01.pose.translation": [
+      1.8815356611700298,
+      2.213718163771692,
+      1.1790922048783647
+    ],
+    "/World/rooms/kitchen/BoxOfCereal_01.visibility.visible": true,
+    "/World/rooms/kitchen/CarvingKnife_01.material./World/rooms/kitchen/CarvingKnife_01/Looks/gixmnd__base_link_pbr/Shader.base_color": [
+      1.0,
+      0.9853175261398138,
+      0.9675312887346459
+    ],
+    "/World/rooms/kitchen/CarvingKnife_01.material./World/rooms/kitchen/CarvingKnife_01/Looks/gixmnd__base_link_pbr/Shader.base_color_attr": "inputs:diffuse_tint",
+    "/World/rooms/kitchen/CarvingKnife_01.material./World/rooms/kitchen/CarvingKnife_01/Looks/gixmnd__base_link_pbr/Shader.roughness": 0.4895320025424398,
+    "/World/rooms/kitchen/CarvingKnife_01.material./World/rooms/kitchen/CarvingKnife_01/Looks/gixmnd__base_link_pbr/Shader.roughness_attr": "inputs:reflection_roughness_constant",
+    "/World/rooms/kitchen/CarvingKnife_01.pose.rotation_delta_deg": [
+      0.0,
+      0.0,
+      10.179847167377762
+    ],
+    "/World/rooms/kitchen/CarvingKnife_01.pose.scale_factors": [
+      1.0,
+      1.0,
+      1.0
+    ],
+    "/World/rooms/kitchen/CarvingKnife_01.pose.translation": [
+      1.931616200433348,
+      2.3326586102497036,
+      0.905932351842912
+    ]
+  },
+  "base_scene_usd": "/home/znr/collected_scene/demo_environmental_safety/kitchen_new.usda",
+  "composed_scene_usd": "/home/znr/collected_scene/demo_environmental_safety/forge_dr/composed_scene.usda",
+  "controllability_score": 1.0,
+  "layer_stack_path": "/home/znr/collected_scene/demo_environmental_safety/forge_dr/layer_stack.json",
+  "randomization_layers": [
+    "/home/znr/collected_scene/demo_environmental_safety/forge_dr/randomization_layers/dr_seed_0001.usda"
+  ],
+  "request_id": "forge_dr_ui_request",
+  "requested_parameters": {
+    "/World/rooms/kitchen/BoxOfCereal_01.asset.copy_count": {
+      "composition": "reference",
+      "count": 1,
+      "suffix": "_copy"
+    },
+    "/World/rooms/kitchen/BoxOfCereal_01.asset.copy_placement": {
+      "collision_check": true,
+      "max_attempts": 16,
+      "mode": "sample_nearby",
+      "radius_m": [
+        0.15,
+        0.45
+      ]
+    },
+    "/World/rooms/kitchen/BoxOfCereal_01.material.color_jitter": 0.05,
+    "/World/rooms/kitchen/BoxOfCereal_01.material.roughness": [
+      0.35,
+      0.8
+    ],
+    "/World/rooms/kitchen/BoxOfCereal_01.physics.mass_scale": [
+      0.9,
+      1.1
+    ],
+    "/World/rooms/kitchen/BoxOfCereal_01.pose.rotation_jitter_deg": {
+      "x": [
+        0.0,
+        0.0
+      ],
+      "y": [
+        0.0,
+        0.0
+      ],
+      "z": [
+        -15.0,
+        15.0
+      ]
+    },
+    "/World/rooms/kitchen/BoxOfCereal_01.pose.scale_jitter": {
+      "x": [
+        1.0,
+        1.0
+      ],
+      "y": [
+        1.0,
+        1.0
+      ],
+      "z": [
+        1.0,
+        1.0
+      ]
+    },
+    "/World/rooms/kitchen/BoxOfCereal_01.pose.translation_jitter_m": {
+      "x": [
+        -0.02,
+        0.02
+      ],
+      "y": [
+        -0.02,
+        0.02
+      ],
+      "z": [
+        -0.02,
+        0.02
+      ]
+    },
+    "/World/rooms/kitchen/BoxOfCereal_01.visibility": {
+      "mode": "random"
+    },
+    "/World/rooms/kitchen/CarvingKnife_01.material.color_jitter": 0.05,
+    "/World/rooms/kitchen/CarvingKnife_01.material.roughness": [
+      0.35,
+      0.8
+    ],
+    "/World/rooms/kitchen/CarvingKnife_01.pose.rotation_jitter_deg": {
+      "x": [
+        0.0,
+        0.0
+      ],
+      "y": [
+        0.0,
+        0.0
+      ],
+      "z": [
+        -15.0,
+        15.0
+      ]
+    },
+    "/World/rooms/kitchen/CarvingKnife_01.pose.scale_jitter": {
+      "x": [
+        1.0,
+        1.0
+      ],
+      "y": [
+        1.0,
+        1.0
+      ],
+      "z": [
+        1.0,
+        1.0
+      ]
+    },
+    "/World/rooms/kitchen/CarvingKnife_01.pose.translation_jitter_m": {
+      "x": [
+        -0.02,
+        0.02
+      ],
+      "y": [
+        -0.02,
+        0.02
+      ],
+      "z": [
+        -0.02,
+        0.02
+      ]
+    }
+  },
+  "sampled_parameters": {
+    "/World/rooms/kitchen/BoxOfCereal_01.asset.copy./World/rooms/kitchen/BoxOfCereal_01_copy": {
+      "asset_path": "/home/znr/collected_scene/demo_environmental_safety/kitchen_new.usda",
+      "composition": "reference",
+      "source_prim_path": "/World/rooms/kitchen/BoxOfCereal_01"
+    },
+    "/World/rooms/kitchen/BoxOfCereal_01.asset.copy./World/rooms/kitchen/BoxOfCereal_01_copy.translation": [
+      1.6899965788871327,
+      2.0913288852116514,
+      1.1849717453407866
+    ],
+    "/World/rooms/kitchen/BoxOfCereal_01.material./World/rooms/kitchen/BoxOfCereal_01/Looks/wrlalk__base_link_pbr/Shader.base_color": [
+      1.0,
+      0.9886343020681428,
+      0.9832293557715882
+    ],
+    "/World/rooms/kitchen/BoxOfCereal_01.material./World/rooms/kitchen/BoxOfCereal_01/Looks/wrlalk__base_link_pbr/Shader.base_color_attr": "inputs:diffuse_tint",
+    "/World/rooms/kitchen/BoxOfCereal_01.material./World/rooms/kitchen/BoxOfCereal_01/Looks/wrlalk__base_link_pbr/Shader.roughness": 0.4248244185760635,
+    "/World/rooms/kitchen/BoxOfCereal_01.material./World/rooms/kitchen/BoxOfCereal_01/Looks/wrlalk__base_link_pbr/Shader.roughness_attr": "inputs:reflection_roughness_constant",
+    "/World/rooms/kitchen/BoxOfCereal_01.physics.mass": 1.054016345657507,
+    "/World/rooms/kitchen/BoxOfCereal_01.pose.rotation_delta_deg": [
+      0.0,
+      0.0,
+      -0.8841911965960314
+    ],
+    "/World/rooms/kitchen/BoxOfCereal_01.pose.scale_factors": [
+      1.0,
+      1.0,
+      1.0
+    ],
+    "/World/rooms/kitchen/BoxOfCereal_01.pose.translation": [
+      1.8815356611700298,
+      2.213718163771692,
+      1.1790922048783647
+    ],
+    "/World/rooms/kitchen/BoxOfCereal_01.visibility.visible": true,
+    "/World/rooms/kitchen/CarvingKnife_01.material./World/rooms/kitchen/CarvingKnife_01/Looks/gixmnd__base_link_pbr/Shader.base_color": [
+      1.0,
+      0.9853175261398138,
+      0.9675312887346459
+    ],
+    "/World/rooms/kitchen/CarvingKnife_01.material./World/rooms/kitchen/CarvingKnife_01/Looks/gixmnd__base_link_pbr/Shader.base_color_attr": "inputs:diffuse_tint",
+    "/World/rooms/kitchen/CarvingKnife_01.material./World/rooms/kitchen/CarvingKnife_01/Looks/gixmnd__base_link_pbr/Shader.roughness": 0.4895320025424398,
+    "/World/rooms/kitchen/CarvingKnife_01.material./World/rooms/kitchen/CarvingKnife_01/Looks/gixmnd__base_link_pbr/Shader.roughness_attr": "inputs:reflection_roughness_constant",
+    "/World/rooms/kitchen/CarvingKnife_01.pose.rotation_delta_deg": [
+      0.0,
+      0.0,
+      10.179847167377762
+    ],
+    "/World/rooms/kitchen/CarvingKnife_01.pose.scale_factors": [
+      1.0,
+      1.0,
+      1.0
+    ],
+    "/World/rooms/kitchen/CarvingKnife_01.pose.translation": [
+      1.931616200433348,
+      2.3326586102497036,
+      0.905932351842912
+    ]
+  },
+  "schema_version": "0.2",
+  "seed": 1,
+  "validation": {
+    "coverage": {
+      "achieved_parameters": 18,
+      "controllability_score": 1.0,
+      "enabled_domains": 7,
+      "requested_parameters": 14
+    },
+    "issues": [],
+    "resample_counts": {},
+    "success": true
+  },
+  "variant_id": "forge_dr_ui_variant"
+}

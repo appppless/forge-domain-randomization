@@ -1,0 +1,313 @@
+{
+  "base_scene_hash": "sha256:4fab109157d14e1ad88ff273a8930e29150c9c8448392c558598d3b057b8d294",
+  "base_scene_usd": "/home/znr/collected_scene/demo_environmental_safety/kitchen_new.usda",
+  "cameras": [],
+  "lights": [],
+  "prims": [
+    {
+      "bounds": {
+        "aabb_max": [
+          2.0966430728829293,
+          2.2525000981986523,
+          1.061630020062633
+        ],
+        "aabb_min": [
+          2.036642962465325,
+          2.1475000381469727,
+          0.8716300224468188
+        ]
+      },
+      "material_bindings": [
+        {
+          "base_color": null,
+          "base_color_attr": null,
+          "binding_prim_path": "/World/rooms/kitchen/BoxOfCereal_01/base_link/visuals",
+          "diffuse_texture": "../material/wrlalk__base_link__diffuse.png",
+          "diffuse_texture_attr": "inputs:diffuse_texture",
+          "diffuse_tint": null,
+          "diffuse_tint_attr": null,
+          "material_model": "omni_pbr",
+          "material_path": "/World/rooms/kitchen/BoxOfCereal_01/Looks/wrlalk__base_link_pbr/Shader",
+          "roughness": null,
+          "roughness_attr": null,
+          "shader_id": "OmniPBR",
+          "shader_inputs": [
+            "inputs:diffuse_texture",
+            "inputs:metallic_texture",
+            "inputs:metallic_texture_influence",
+            "inputs:normalmap_texture"
+          ],
+          "shader_source_asset": "OmniPBR.mdl"
+        }
+      ],
+      "physics": {
+        "collision_prim_paths": [],
+        "friction": null,
+        "has_collision": false,
+        "has_rigid_body": true,
+        "mass": 1.0,
+        "mass_prim_path": "/World/rooms/kitchen/BoxOfCereal_01/base_link",
+        "physics_material_prim_path": "/World/rooms/kitchen/BoxOfCereal_01/Looks/wrlalk__base_link_pbr",
+        "restitution": null,
+        "rigid_body_prim_path": "/World/rooms/kitchen/BoxOfCereal_01/base_link"
+      },
+      "prim_path": "/World/rooms/kitchen/BoxOfCereal_01",
+      "source_confidence": "whitelist",
+      "type_name": "Xform",
+      "world_transform": {
+        "rotation_euler_deg": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "translation": [
+          1.8700000047683716,
+          2.200000047683716,
+          1.1849717453407866
+        ]
+      },
+      "xform": {
+        "layout": "trs",
+        "local_transform_4x4": [
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0,
+          0.0,
+          1.8700000047683716,
+          2.200000047683716,
+          1.1849717453407866,
+          1.0
+        ],
+        "local_translation": [
+          1.8700000047683716,
+          2.200000047683716,
+          1.1849717453407866
+        ],
+        "op_order": [
+          "xformOp:translate",
+          "xformOp:orient",
+          "xformOp:scale"
+        ],
+        "parent_world_transform_4x4": [
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ],
+        "rotate": {
+          "base_value": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ],
+          "op_name": "xformOp:orient",
+          "op_type": "orient",
+          "precision": "double",
+          "present": true
+        },
+        "scale": {
+          "base_value": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "op_name": "xformOp:scale",
+          "precision": "double",
+          "present": true
+        },
+        "translate": {
+          "base_value": [
+            1.8700000047683716,
+            2.200000047683716,
+            1.1849717453407866
+          ],
+          "op_name": "xformOp:translate",
+          "precision": "double",
+          "present": true
+        },
+        "translate_op_name": "xformOp:translate",
+        "translate_op_precision": "double"
+      }
+    },
+    {
+      "bounds": {
+        "aabb_max": [
+          2.09473023617713,
+          2.387843973367145,
+          0.9358440738279998
+        ],
+        "aabb_min": [
+          1.7730440884698484,
+          2.326211022063405,
+          0.9055134462765085
+        ]
+      },
+      "material_bindings": [
+        {
+          "base_color": null,
+          "base_color_attr": null,
+          "binding_prim_path": "/World/rooms/kitchen/CarvingKnife_01/base_link/visuals",
+          "diffuse_texture": "../material/gixmnd__base_link__diffuse.png",
+          "diffuse_texture_attr": "inputs:diffuse_texture",
+          "diffuse_tint": null,
+          "diffuse_tint_attr": null,
+          "material_model": "omni_pbr",
+          "material_path": "/World/rooms/kitchen/CarvingKnife_01/Looks/gixmnd__base_link_pbr/Shader",
+          "roughness": null,
+          "roughness_attr": null,
+          "shader_id": "OmniPBR",
+          "shader_inputs": [
+            "inputs:diffuse_texture",
+            "inputs:metallic_texture",
+            "inputs:metallic_texture_influence",
+            "inputs:normalmap_texture"
+          ],
+          "shader_source_asset": "OmniPBR.mdl"
+        }
+      ],
+      "physics": {
+        "collision_prim_paths": [],
+        "friction": null,
+        "has_collision": false,
+        "has_rigid_body": true,
+        "mass": 0.009999999776482582,
+        "mass_prim_path": "/World/rooms/kitchen/CarvingKnife_01/base_link",
+        "physics_material_prim_path": "/World/rooms/kitchen/CarvingKnife_01/Looks/gixmnd__base_link_pbr",
+        "restitution": null,
+        "rigid_body_prim_path": "/World/rooms/kitchen/CarvingKnife_01/base_link"
+      },
+      "prim_path": "/World/rooms/kitchen/CarvingKnife_01",
+      "source_confidence": "whitelist",
+      "type_name": "Xform",
+      "world_transform": {
+        "rotation_euler_deg": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "translation": [
+          1.9203947126735303,
+          2.34944482132724,
+          0.9173785343874872
+        ]
+      },
+      "xform": {
+        "layout": "trs",
+        "local_transform_4x4": [
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0,
+          0.0,
+          1.9203947126735303,
+          2.34944482132724,
+          0.9173785343874872,
+          1.0
+        ],
+        "local_translation": [
+          1.9203947126735303,
+          2.34944482132724,
+          0.9173785343874872
+        ],
+        "op_order": [
+          "xformOp:translate",
+          "xformOp:orient",
+          "xformOp:scale"
+        ],
+        "parent_world_transform_4x4": [
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ],
+        "rotate": {
+          "base_value": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ],
+          "op_name": "xformOp:orient",
+          "op_type": "orient",
+          "precision": "double",
+          "present": true
+        },
+        "scale": {
+          "base_value": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "op_name": "xformOp:scale",
+          "precision": "double",
+          "present": true
+        },
+        "translate": {
+          "base_value": [
+            1.9203947126735303,
+            2.34944482132724,
+            0.9173785343874872
+          ],
+          "op_name": "xformOp:translate",
+          "precision": "double",
+          "present": true
+        },
+        "translate_op_name": "xformOp:translate",
+        "translate_op_precision": "double"
+      }
+    }
+  ],
+  "schema_version": "0.2",
+  "stage_units_meters": 1.0,
+  "warnings": []
+}

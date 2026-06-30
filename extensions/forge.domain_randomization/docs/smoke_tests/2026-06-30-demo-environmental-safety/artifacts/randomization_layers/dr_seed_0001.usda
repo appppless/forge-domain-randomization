@@ -1,0 +1,72 @@
+#usda 1.0
+(
+    customLayerData = {
+        string base_scene_hash = "sha256:4fab109157d14e1ad88ff273a8930e29150c9c8448392c558598d3b057b8d294"
+        string config_hash = "sha256:18e8f958e4b819d9b7b4a169f576e903c3a13e61c57a0c20955b197897c1af01"
+        string request_id = "forge_dr_ui_request"
+        int seed = 1
+        string variant_id = "forge_dr_ui_variant"
+        string writer = "pxr"
+    }
+)
+
+over "World"
+{
+    over "rooms"
+    {
+        over "kitchen"
+        {
+            over "BoxOfCereal_01_copy" (
+                references = @/home/znr/collected_scene/demo_environmental_safety/kitchen_new.usda@</World/rooms/kitchen/BoxOfCereal_01>
+            )
+            {
+                double3 xformOp:translate = (1.6899965788871327, 2.0913288852116514, 1.1849717453407866)
+            }
+
+            over "BoxOfCereal_01"
+            {
+                token visibility = "inherited"
+                quatd xformOp:orient = (0.9999702316360614, 0, 0, -0.007715947234254464)
+                double3 xformOp:scale = (1, 1, 1)
+                double3 xformOp:translate = (1.8815356611700298, 2.213718163771692, 1.1790922048783647)
+
+                over "Looks"
+                {
+                    over "wrlalk__base_link_pbr"
+                    {
+                        over "Shader"
+                        {
+                            color3f inputs:diffuse_tint = (1, 0.9886343, 0.98322934)
+                            float inputs:reflection_roughness_constant = 0.42482442
+                        }
+                    }
+                }
+
+                over "base_link"
+                {
+                    float physics:mass = 1.0540164
+                }
+            }
+
+            over "CarvingKnife_01"
+            {
+                quatd xformOp:orient = (0.9960566835488066, 0, 0, 0.08871912509573446)
+                double3 xformOp:scale = (1, 1, 1)
+                double3 xformOp:translate = (1.931616200433348, 2.3326586102497036, 0.905932351842912)
+
+                over "Looks"
+                {
+                    over "gixmnd__base_link_pbr"
+                    {
+                        over "Shader"
+                        {
+                            color3f inputs:diffuse_tint = (1, 0.9853175, 0.96753126)
+                            float inputs:reflection_roughness_constant = 0.489532
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
