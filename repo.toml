@@ -7,9 +7,15 @@ repo_name = "forge.domain_randomization"
 configs = ["release"]
 platforms = ["linux-x86_64"]
 python_tag = "cp310"
+kit_path = "C:/isaac-sim-standalone-6.0.0-windows-x86_64/kit/kit.exe"
+ext_folders = ["${publish_root}/extensions"]
 pack_extension = true
 publish_verification = true
 signing.enabled = false
+use_packman_to_upload_archive = false
+registries = [
+    { name = "forge/desktop", url = "C:/Users/znr/Desktop/forge-extension-registry" },
+]
 
 [repo_publish_exts.exts]
 include = ["forge.domain_randomization"]

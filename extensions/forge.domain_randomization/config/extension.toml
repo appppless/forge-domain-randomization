@@ -9,9 +9,11 @@ title = "FORGE Domain Randomization"
 description = "USD-layer based domain randomization for different variants."
 authors = ["https://github.com/appppless"]
 repository = "https://github.com/appppless/forge-domain-randomization"
+license = "MIT"
 keywords = ["FORGE", "Benchmark", "Domain Randomization"]
 changelog = "docs/CHANGELOG.md"
 readme = "docs/README.md"
+icon = "data/icon.png"
 preview_image = "data/preview.png"
 
 [[python.module]]

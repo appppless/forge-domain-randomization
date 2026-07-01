@@ -14,7 +14,7 @@ composition manifest.
 
 Version: `0.1.0`
 
-Release target: **alpha / internal research preview**
+Release target: **alpha / open-source preview**
 
 This package is ready to publish as an alpha plugin for controlled FORGE
 development and collaborator testing. It is not yet a stable public benchmark
@@ -82,7 +82,7 @@ Important files:
 - `forge_domain_randomization/validator.py`: benchmark-facing validation.
 - `forge_domain_randomization/scripts/forge_dr_run.py`: standalone headless runner.
 - `data/preview.png`: Extension Manager preview image.
-- `PACKAGE-LICENSES/forge.domain_randomization-LICENSE.md`: current alpha license notice.
+- `PACKAGE-LICENSES/forge.domain_randomization-LICENSE.md`: MIT license notice.
 - `tests/`: offline unit tests.
 
 ## Install And Enable
@@ -446,7 +446,7 @@ Alpha release checklist:
 - Extension metadata version matches `setup.py`.
 - Extension metadata points to `docs/README.md`, `docs/CHANGELOG.md`, and
   `data/preview.png`.
-- License notice is present under `PACKAGE-LICENSES/`.
+- MIT license notice is present under `PACKAGE-LICENSES/`.
 - No generated `__pycache__`, `.pyc`, or local smoke-test artifacts are included.
 
 Beta release checklist:

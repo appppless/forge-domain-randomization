@@ -1,0 +1,4 @@
+[repo_publish_exts]
+command = "publish_exts"
+entry_point = "C:/isaac-sim-standalone-6.0.0-windows-x86_64/kit/dev/tools/repoman/publish_exts.py:setup_repo_tool"
+enabled = true

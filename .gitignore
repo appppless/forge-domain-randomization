@@ -1,0 +1,20 @@
+__pycache__/
+**/__pycache__/
+extensions/forge.domain_randomization/forge_domain_randomization/__pycache__/
+extensions/forge.domain_randomization/forge_domain_randomization/appliers/__pycache__/
+*.py[cod]
+*$py.class
+
+.pytest_cache/
+.coverage
+htmlcov/
+
+# Isaac-Sim packman
+_build/
+_repo/
+
+repo.log
+*.log
+
+/VERSION.md
+/tools/dump_isaac_extension_registry.py
