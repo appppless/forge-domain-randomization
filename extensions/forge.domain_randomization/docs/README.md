@@ -1,48 +1,37 @@
 # FORGE Domain Randomization Extension
 
-FORGE Domain Randomization is an Isaac Sim / Omniverse extension for producing
-deterministic benchmark variants from an existing USD scene. It scans a stage,
-samples controlled perturbations, writes non-destructive USD override layers,
-and records requested, sampled, achieved, validation, and controllability
-artifacts for downstream FORGE execution, oracle, and metrics stages.
+## Introduction
 
-The extension is USD-layer based by design: it must not mutate the base scene in
-place. A randomized variant is represented as sparse override layers plus a
-composition manifest.
+The FORGE Domain Randomization extension adds USD-layer based domain
+randomization to assets and environments in Isaac Sim / Omniverse. It scans the current stage, lets user
+choose scene targets, samples deterministic variations, and writes
+non-destructive USD override layers for benchmark and simulation workflows.
 
-## Release Status
+With this extension, users can randomize scene properties such as object
+materials, poses, visibility, asset variants, lights, cameras, and selected
+physics parameters without modifying the original USD scene. Each run records
+the request, sampled values, generated layers, validation result, and composed
+scene metadata so the same variant can be inspected or replayed later.
 
-Version: `0.1.0`
+FORGE Domain Randomization lets you apply anything from subtle perturbations to
+large scene changes on top of a base USD scene, creating diverse 3D variants for
+training robot policies and evaluating model robustness.
 
-Release target: **alpha / open-source preview**
+## Installation
 
-This package is ready to publish as an alpha plugin for controlled FORGE
-development and collaborator testing. It is not yet a stable public benchmark
-plugin because real Isaac smoke-test evidence, compatibility documentation
-across Isaac versions, and scene-manifest-backed semantic role validation are
-still in progress.
+To install the extension in Isaac Sim or another Omniverse Kit app:
 
-What is currently implemented:
+1. Clone this repository.
+2. Open Isaac Sim.
+3. Go to `Window > Extensions`.
+4. Click the settings gear in the Extensions window.
+5. Add the Kit maintained extension registry address to make third-party extensions discoverable. Via the Extensions window (Window > Extensions >
+options button > Settings > Extension Registries):
+- Name: kit/community
+- URL: https://dw290v42wisod.cloudfront.net/exts/kit/community.
+6. Search for `FORGE Domain Randomization`.
+7. Enable the `forge.domain_randomization` extension.
 
-- Omniverse extension lifecycle shell and Tools menu entry.
-- Alpha UI panel for selecting targets, factors, output paths, and running DR.
-- Reusable Python command API.
-- Deterministic sampler with seed replay.
-- Sparse text and pxr-backed USDA override layer writers.
-- Layer-stack manifest and composed-scene stub generation.
-- SceneCraft pipe coupling.
-- Strict validator for missing prims, unachieved domains, missing visibility
-  pool members, controllability thresholds, and blocking issues.
-- Offline unit tests for schemas, sampler, layer writing, composition, UI model
-  helpers, SceneCraft coupling, and validator behavior.
-
-Known non-goals for `0.1.0`:
-
-- This extension does not execute robot policies.
-- This extension does not synthesize task oracles.
-- This extension does not compute benchmark-level metrics.
-- This extension does not replace SceneCraft placement evaluation.
-- This extension does not make heuristic scan roles benchmark-quality evidence.
 
 ## Compatibility
 
@@ -85,44 +74,27 @@ Important files:
 - `PACKAGE-LICENSES/forge.domain_randomization-LICENSE.md`: MIT license notice.
 - `tests/`: offline unit tests.
 
-## Install And Enable
+## Basic Usage
 
-For FORGE development, keep this directory under:
+To create randomized variants from an open USD stage:
 
-```text
-extensions/forge.domain_randomization/
-```
+1. Open a scene in Isaac Sim.
+2. Open `Tools > FORGE > FORGE Domain Randomization`.
+3. Select the output directory for generated artifacts.
+4. Set a request id, variant id, seed, and variant count.
+5. Choose the writer backend:
+   - `pxr` for Isaac Sim / Omniverse usage.
+   - `text` for offline debug and tests.
+6. Click the scan action to inspect available objects, lights, and cameras.
+7. Add targets and choose the randomization ranges to apply.
+8. Run the randomization.
 
-Inside Isaac Sim, add the repository extension path and enable:
+The extension writes USD override layers and metadata into the selected output
+directory. The base scene remains unchanged.
 
-```text
-forge.domain_randomization
-```
+## Python API
 
-The extension metadata lives at:
-
-```text
-extensions/forge.domain_randomization/config/extension.toml
-```
-
-When enabled successfully, the UI appears at:
-
-```text
-Tools > FORGE > FORGE Domain Randomization
-```
-
-For offline Python tests or tooling from the extension directory:
-
-```bash
-python -m pip install -e extensions/forge.domain_randomization
-```
-
-Do not use ordinary Python to import Isaac-only modules. Use the text writer or
-injected scans outside Isaac.
-
-## Quick Start
-
-Minimal Python command use:
+The extension can also be driven from Python through the command API:
 
 ```python
 from forge_domain_randomization.commands import run_domain_randomization
@@ -130,7 +102,7 @@ from forge_domain_randomization.commands import run_domain_randomization
 result = run_domain_randomization(request_dict)
 ```
 
-Minimal request shape:
+A minimal request looks like this:
 
 ```json
 {
@@ -175,11 +147,7 @@ Minimal request shape:
 }
 ```
 
-Use `layer_policy.writer = "pxr"` inside Isaac / Omniverse. Use
-`layer_policy.writer = "text"` for offline unit tests and pure Python smoke
-checks.
-
-For batch generation, set:
+For batch generation, include a variant count:
 
 ```json
 {
@@ -188,325 +156,41 @@ For batch generation, set:
 }
 ```
 
-Each variant is written under a deterministic seed-specific output directory.
-
-## UI Workflow
-
-Open the panel from:
-
-```text
-Tools > FORGE > FORGE Domain Randomization
-```
-
-The alpha UI supports:
-
-- Selecting the current base USD stage.
-- Selecting an optional `scene_manifest.json`.
-- Choosing the output directory.
-- Editing request id, variant id, seed, and variant count.
-- Selecting writer backend (`pxr` in Isaac, `text` for offline debug).
-- Scanning stage candidates.
-- Adding object, light, and camera targets.
-- Editing conservative material, pose, visibility, physics, lighting, and
-  camera ranges.
-- Building a request preview.
-- Running randomization.
-- Composing an existing `layer_stack.json`.
-- Reviewing validation summary, controllability score, and artifact paths.
-
-The UI calls `commands.run_domain_randomization()` and
-`commands.compose_layer_stack()`. It should not duplicate sampler, writer, or
-validator logic.
-
-## Running In Isaac
-
-Standalone headless run:
-
-```bash
-isaac-sim --no-window \
-  --/app/extensions/enabled/forge.domain_randomization=true \
-  --exec extensions/forge.domain_randomization/forge_domain_randomization/scripts/forge_dr_run.py \
-  --request /abs/path/domain_randomization_request.json
-```
-
-The runner launches Isaac before importing runtime-dependent modules. This keeps
-Omniverse imports aligned with Isaac extension conventions.
-
-An Isaac smoke test is considered passing when:
-
-- `base_scene.usd` is not modified in place.
-- `domain_scan.json` exists.
-- At least one `randomization_layers/*.usda` file exists.
-- `layer_stack.json` exists.
-- `achieved_domain_report.json` exists.
-- `composed_scene.usda` exists when the base scene path is valid.
-- The composed stage opens in Isaac / pxr.
-- `validation.issues` has no blocking issue.
-
-Do not claim real Isaac validation unless Isaac was actually launched with a
-stage-backed request.
-
-Recorded smoke tests:
-
-- `docs/smoke_tests/2026-06-30-demo-environmental-safety.md`
-
-## SceneCraft Pipe Use
-
-SceneCraft coupling is provided through:
-
-- `SceneCraft/domain_randomization_bridge.py`
-- `SceneCraft/Tools/domain_randomization_tool.py`
-- `SceneCraft/isaac_sim_app.py`
-
-The persistent Isaac host accepts:
-
-```text
-domain_randomization_run,{request_json}
-```
-
-Python wrapper:
-
-```python
-from SceneCraft.Tools.domain_randomization_tool import run_domain_randomization
-
-result = run_domain_randomization(request_dict)
-```
-
-The bridge should pass structured JSON payloads and receive JSON-compatible
-results.
+Each variant uses a deterministic seed and is written to its own output
+directory.
 
 ## Output Artifacts
 
-The command emits:
+A randomization run can produce:
 
-- `domain_scan.json`
-- `randomization_layers/*.usda`
-- `layer_stack.json`
-- `composed_scene.usda` when composition is possible
-- `achieved_domain_report.json`
+- USDA override layers for the sampled variant.
+- `layer_stack.json` describing the generated layer stack.
+- `achieved_domain_report.json` describing requested and achieved changes.
+- `domain_scan.json` when a stage scan is recorded.
+- A composed scene stub for reopening or downstream validation.
 
-`domain_scan.json` records what the extension observed in the base stage:
+These artifacts are intended for FORGE benchmark pipelines, replayable
+simulation experiments, and inspection of generated domain variation.
 
-- `schema_version`
-- `base_scene_usd`
-- `base_scene_hash`
-- `stage_units_meters`
-- `prims`
-- `lights`
-- `cameras`
-- `warnings`
+## Offline Development
 
-`layer_stack.json` records how to compose the randomized scene:
-
-- `variant_id`
-- `base_scene_usd`
-- `sub_layers`
-- `composed_scene_usd`
-- `composition`
-
-`achieved_domain_report.json` is the benchmark-facing result:
-
-- `variant_id`
-- `request_id`
-- `seed`
-- `base_scene_usd`
-- `randomization_layers`
-- `composed_scene_usd`
-- `layer_stack_path`
-- `requested_parameters`
-- `sampled_parameters`
-- `achieved_parameters`
-- `validation`
-- `controllability_score`
-
-Downstream systems should consume `achieved_domain_report.json` and
-`layer_stack.json`, not infer randomization state from filenames.
-
-## Supported Factors
-
-Object-level factors:
-
-- Material color jitter.
-- Material roughness range.
-- Material texture variants.
-- Pose translation jitter.
-- Pose translation toward another prim.
-- Pose rotation jitter.
-- Pose scale jitter.
-- Visibility toggles.
-- Physics mass, friction, and restitution where supported by scanned prims.
-- Asset reference / payload variants.
-- Copy-based distractor expansion.
-
-Simulator-level factors:
-
-- Light intensity scale.
-- Light color.
-- Light color temperature.
-- Camera translation jitter.
-- Camera yaw / pitch / roll jitter.
-- Camera FOV.
-
-Collection factors:
-
-- Visibility pools with `keep_visible`.
-
-Public benchmark-facing factor groups should remain:
-
-- `asset_level`
-- `placement_level`
-- `simulator_level`
-
-Internal implementation may route these through material, pose, visibility,
-lighting, camera, physics, and asset appliers.
-
-## Validation Policy
-
-Validation runs after sampling and layer writing. It does not prevent other
-domains from being sampled; it determines whether the produced variant is valid
-enough for benchmark use.
-
-Validation is strict by default. A request with enabled factors is
-blocking-invalid when:
-
-- A requested object, light, or camera is absent from the scan.
-- A requested domain cannot be achieved.
-- Enabled factors produce no USD edits.
-- Enabled factors produce no achieved parameters.
-- A visibility pool references prims absent from the scan.
-- `minimum_controllability_score` is configured and not met.
-
-The command-level `success` field follows `validation.success`.
-
-For exploratory UI work or debugging, callers may set:
-
-```json
-{
-  "validation_policy": {
-    "mode": "permissive"
-  }
-}
-```
-
-Permissive validation keeps the same issues in the report but marks them
-non-blocking.
-
-Optional controllability threshold:
-
-```json
-{
-  "validation_policy": {
-    "minimum_controllability_score": 0.8
-  }
-}
-```
-
-Validation output includes:
-
-- `success`
-- `issues`
-- `resample_counts`
-- `coverage.enabled_domains`
-- `coverage.requested_parameters`
-- `coverage.achieved_parameters`
-- `coverage.controllability_score`
-
-## Verification
-
-Offline extension tests:
+For local Python development:
 
 ```bash
+python -m pip install -e extensions/forge.domain_randomization
 python -B -m unittest discover -s extensions/forge.domain_randomization/tests
 ```
 
-Expected current offline result:
+Offline code paths do not require Isaac Sim when using injected scans and the
+`text` writer. Live stage scanning, UI usage, and pxr-backed layer writing
+require Isaac Sim / Omniverse modules.
 
-```text
-Ran 127 tests
-OK (skipped=4)
-```
+## Notes
 
-FORGE-side planner / runner tests:
-
-```bash
-python -B -m unittest discover -s domain_randomization/tests
-```
-
-Use `python -B` to avoid leaving `__pycache__` files behind. Remove generated
-cache files before publishing.
-
-## Release Checklist
-
-Alpha release checklist:
-
-- Offline extension tests pass in ordinary Python.
-- Isaac-only tests are skipped or isolated when Isaac / pxr is unavailable.
-- One injected-scan request produces all expected artifacts.
-- README documents runtime boundaries, validation behavior, and limitations.
-- Extension metadata version matches `setup.py`.
-- Extension metadata points to `docs/README.md`, `docs/CHANGELOG.md`, and
-  `data/preview.png`.
-- MIT license notice is present under `PACKAGE-LICENSES/`.
-- No generated `__pycache__`, `.pyc`, or local smoke-test artifacts are included.
-
-Beta release checklist:
-
-- Alpha checklist is satisfied.
-- Real Isaac smoke test passes on a recorded Isaac Sim version.
-- SceneCraft pipe command works against a live stage.
-- UI panel can scan, build, run, compose, and display an achieved report.
-- Example request and smoke-test notes are checked into docs or examples.
-- Compatibility matrix is documented.
-- `data/icon.png` is added if the extension will be distributed through a UI
-  catalog that expects package icons.
-
-Stable release checklist:
-
-- Beta checklist is satisfied.
-- Deterministic seed replay is verified across multiple scene types.
-- Scene-manifest-backed role mapping is supported.
-- Validator catches missing prims, missing cameras, invalid layers, failed
-  composition, and unachieved requested domains.
-- Multiple stage-backed smoke tests are recorded.
-- Known limitations are either resolved or explicitly scoped.
-
-## Known Limitations
-
-- `scene_manifest.json` integration is optional and not yet the primary source
-  of semantic role truth.
-- Heuristic scan results are useful for engineering smoke tests but should not
-  be treated as benchmark-quality semantic evidence.
-- Real Isaac smoke-test evidence still needs to be recorded for release notes.
-- Compatibility across Isaac Sim versions is not yet certified.
-- Oracle synthesis and metrics aggregation are outside this extension.
-- Real Isaac articulation execution, grasp events, and process-level task
-  oracles are not provided by this plugin.
-
-## Troubleshooting
-
-`ModuleNotFoundError: No module named 'pxr'`
-
-: You are running outside Isaac / Omniverse. Use the text writer for unit tests
-  or run the request inside Isaac Sim.
-
-`composed_scene.usda` is missing
-
-: The base scene path may not exist, or composition was skipped. Check
-  `validation.issues` in `achieved_domain_report.json`.
-
-`success` is false but some layers were written
-
-: This is expected for strict validation. The extension preserves partial
-  artifacts for diagnosis but marks the variant invalid when a requested domain
-  was not achieved.
-
-No randomized effect is visible
-
-: Confirm the requested prim paths match the open stage, then inspect
-  `domain_scan.json`, `sampled_parameters`, `achieved_parameters`, and
-  `validation.issues`.
-
-Base scene changed unexpectedly
-
-: Treat this as a release-blocking bug. Domain randomization must write override
-  layers or composed stubs, never mutate the base scene in place.
+- The extension writes override layers and does not edit the base USD scene in
+  place.
+- The same seed and request produce deterministic sampled values.
+- The extension focuses on domain randomization. It does not execute robot
+  policies, synthesize task oracles, or compute benchmark-level metrics.
+- Isaac Sim / Omniverse dependencies are declared in
+  `extensions/forge.domain_randomization/config/extension.toml`.

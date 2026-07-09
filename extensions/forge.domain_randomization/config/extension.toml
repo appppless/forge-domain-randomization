@@ -10,6 +10,7 @@ description = "USD-layer based domain randomization for different variants."
 authors = ["https://github.com/appppless"]
 repository = "https://github.com/appppless/forge-domain-randomization"
 license = "MIT"
+exchange = true
 keywords = ["FORGE", "Benchmark", "Domain Randomization"]
 changelog = "docs/CHANGELOG.md"
 readme = "docs/README.md"

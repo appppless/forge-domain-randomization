@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 __pycache__/
 **/__pycache__/
 extensions/forge.domain_randomization/forge_domain_randomization/__pycache__/
@@ -18,3 +19,7 @@ repo.log
 
 /VERSION.md
 /tools/dump_isaac_extension_registry.py
+=======
+extensions/forge.domain_randomization/forge_domain_randomization/__pycache__
+extensions/forge.domain_randomization/forge_domain_randomization/appliers/__pycache__
+>>>>>>> e5b8060cd9e6304e06e758895423d6fdd7732161
